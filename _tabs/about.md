@@ -4,7 +4,9 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-### Ciberseguridad 🛡️
+> Hola! Soy Alan. 👋  
+
+Estudio ciberseguridad. Red TEAM, en busqueda de trabajo como pentester junior o SOC.
 
 Estoy formándome en ciberseguridad con foco en análisis, investigación y resolución de desafíos tipo CTF (Capture The Flag). Me interesa especialmente todo lo relacionado con forense digital, redes y explotación básica.
 
