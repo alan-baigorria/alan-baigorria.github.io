@@ -15,4 +15,4 @@ Algunos de los desafíos en los que participé recientemente:
 - 🥉 **8.º puesto – MetaRed CTF 2025 (Argentina, diciembre 2025)**  
 - 🏅 **69.º puesto – Holmes CTF 2025 (septiembre 2025)**  
 
-Sigo practicando y documentando lo que aprendo en laboratorios, writeups y competencias, con la idea de crecer hacia un rol de analista SOC y seguir compitiendo en CTFs cada vez más complejos.
+Sigo practicando y documentando lo que aprendo en laboratorios, writeups y competencias, con la idea de crecer hacia un rol de analista SOC o pentester JR y seguir compitiendo en CTFs cada vez más complejos.
