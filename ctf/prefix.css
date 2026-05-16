@@ -1,0 +1,143 @@
+
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: #008080;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    color: #000;
+}
+
+.paint-window {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #000;
+    border-bottom-color: #000;
+    box-shadow: 2px 2px 0 #000;
+}
+
+.title-bar {
+    background: linear-gradient(to right, #000080, #1084d0);
+    color: white;
+    padding: 4px 8px;
+    font-weight: bold;
+    font-family: 'Tahoma', sans-serif;
+}
+
+.menu-bar {
+    background: #c0c0c0;
+    padding: 4px 8px;
+    border-bottom: 1px solid #808080;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 12px;
+}
+
+.menu-bar span {
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.menu-bar span:hover {
+    background: #000080;
+    color: white;
+}
+
+.content {
+    background: white;
+    margin: 8px;
+    padding: 20px;
+    border: 2px inset #808080;
+}
+
+h1 {
+    text-align: center;
+    color: #ff0000;
+    text-shadow: 2px 2px #ffff00;
+    font-size: 32px;
+    animation: blink 2s infinite;
+}
+
+.subtitle {
+    text-align: center;
+    font-style: italic;
+    color: #808080;
+}
+
+h2 {
+    color: #000080;
+    border-bottom: 2px dashed #000080;
+    padding-bottom: 4px;
+}
+
+.reglas, .pistas, .galeria, .usuarios {
+    background: #ffffcc;
+    border: 2px solid #000;
+    padding: 12px;
+    margin: 16px 0;
+}
+
+.pistas {
+    background: #ccffcc;
+}
+
+.galeria {
+    background: #ccccff;
+    text-align: center;
+}
+
+.usuarios {
+    background: #ffcccc;
+}
+
+.foto-destacada {
+    max-width: 100%;
+    border: 4px solid #000;
+    margin: 10px 0;
+}
+
+.caption {
+    font-style: italic;
+    color: #555;
+    font-size: 13px;
+}
+
+ul {
+    margin: 8px 0;
+}
+
+li {
+    margin: 4px 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 2px dashed #808080;
+}
+
+.small {
+    font-size: 11px;
+    color: #808080;
+}
+
+@keyframes blink {
+    50% { opacity: 0.7; }
+}
+
+
+/* 
+   prefix.css - 
+   ===================================
+   
+   🤫 NOTA INTERNA DEL DEV:
+   
+   QUxBTntKQVJDT0RFQTB9
+   
+   acordate de borrar esto antes de subir a prod
+   ===================================
+*/
+

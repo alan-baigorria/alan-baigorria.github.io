@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /flag3.txt
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /secrets/
+
+# ⚠️ INTERNO - NO MOSTRAR A USUARIOS:
+# Nota para devs:  ?v=dQw4w9WgXcQ
+# están las notas internas, NO BORRAR
+
+# Si llegaste hasta acá leyendo robots.txt
+# sos un kaker de verdad
+
