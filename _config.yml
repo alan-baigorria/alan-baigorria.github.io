@@ -16,7 +16,7 @@ timezone: America/Argentina/San_Luis
 
 title: Alan Baigorria # the main title
 
-tagline: Pentester JR / Futuro perito informático - Técnico Universitario en Ciberseguridad # it will display as the subtitle
+tagline: Técnico Universitario en Ciberseguridad # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Blog de ciberseguridad Argentino.
