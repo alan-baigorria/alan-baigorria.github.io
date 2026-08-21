@@ -1,0 +1,11 @@
+robots.txt
+Disallow: /assets/
+Disallow: /secreton/
+Disallow: /flaggratis/
+Disallow: /s3cr3t-panel/
+Disallow: /screamernoentrar/
+
+
+
+#TODO: acordarme de borrar la carpeta d backup 
+#Maxi pagate la coca
