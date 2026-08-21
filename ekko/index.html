@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EKKO GROUP SAN LUIS - CTF SYSTEM 2000</title>
+  <!-- Flag 1 (Comentario oculto en el codigo fuente):
+       MzAzMTMwMzEzMDMwMzEzMDIwMzAzMTMwMzEzMTMwMzAzMDIwMzAzMTMwMzEzMTMwMzAzMDIwMzAzMTMwMzAzMDMwMzEzMDIwMzAzMTMwMzAzMDMxMzEzMDIwMzAzMTMwMzEzMTMwMzAzMTIwMzAzMTMxMzEzMTMwMzEzMTIwMzAzMTMxMzAzMDMwMzAzMTIwMzAzMDMxMzEzMDMwMzAzMDIwMzAzMTMwMzEzMTMxMzEzMTIwMzAzMTMxMzAzMDMxMzEzMTIwMzAzMDMxMzEzMDMxMzAzMDIwMzAzMTMxMzAzMDMwMzAzMTIwMzAzMTMwMzEzMTMxMzEzMTIwMzAzMTMxMzEzMDMwMzAzMTIwMzAzMDMxMzEzMDMwMzAzMTIwMzAzMTMxMzEzMDMwMzEzMTIwMzAzMDMxMzEzMDMwMzAzMTIwMzAzMTMxMzEzMDMwMzAzMDIwMzAzMDMxMzEzMDMwMzAzMTIwMzAzMTMxMzEzMTMwMzAzMTIwMzAzMTMxMzEzMTMxMzAzMQ==
+  -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: #008080;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #000000;
+      padding: 30px 15px;
+    }
+
+    .window {
+      max-width: 860px;
+      margin: 0 auto 24px auto;
+      background: #c0c0c0;
+      border-top: 3px solid #ffffff;
+      border-left: 3px solid #ffffff;
+      border-right: 3px solid #404040;
+      border-bottom: 3px solid #404040;
+      box-shadow: 6px 6px 16px rgba(0,0,0,0.5);
+      padding: 5px;
+    }
+
+    .title-bar {
+      background: linear-gradient(90deg, #000080, #1084d0);
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    .title-controls span {
+      display: inline-block;
+      width: 18px;
+      height: 16px;
+      background: #c0c0c0;
+      border-top: 1px solid #ffffff;
+      border-left: 1px solid #ffffff;
+      border-right: 1px solid #404040;
+      border-bottom: 1px solid #404040;
+      color: #000000;
+      font-size: 11px;
+      text-align: center;
+      line-height: 14px;
+      margin-left: 4px;
+      font-family: monospace;
+      font-weight: bold;
+      cursor: default;
+    }
+
+    .window-body {
+      padding: 24px;
+    }
+
+    /* Header Window con Logo y Banner */
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background: #0f0f0f;
+      border: 2px inset #ffffff;
+      padding: 16px 20px;
+    }
+
+    .header-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  /* Sacamos el border-radius y el borde artificial para que se vea la ficha limpia */
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+    .header-titles {
+      text-align: left;
+    }
+
+    .header-titles h1 {
+      color: #ffff00;
+      font-family: "Courier New", monospace;
+      font-size: 24px;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .header-titles p {
+      color: #00ffcc;
+      font-size: 13px;
+      font-family: monospace;
+    }
+
+    .reporter-box {
+      background: #ffffcc;
+      border-top: 2px solid #404040;
+      border-left: 2px solid #404040;
+      border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+
+    .reporter-header {
+      background: #b8860b;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 7px 12px;
+      font-size: 14px;
+      margin: -18px -18px 14px -18px;
+      letter-spacing: 0.5px;
+    }
+
+    .reporter-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .reporter-text {
+      flex: 1;
+    }
+
+    .reporter-text p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #222222;
+      margin-bottom: 10px;
+    }
+
+    .reporter-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 220px;
+    }
+
+    .big-reporter-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #c0c0c0;
+      color: #000080;
+      font-family: Tahoma, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 16px 20px;
+      text-align: center;
+      border-top: 3px solid #ffffff;
+      border-left: 3px solid #ffffff;
+      border-right: 3px solid #404040;
+      border-bottom: 3px solid #404040;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+      transition: all 0.1s ease;
+      width: 100%;
+    }
+
+    .big-reporter-btn:active {
+      border-top: 3px solid #404040;
+      border-left: 3px solid #404040;
+      border-right: 3px solid #ffffff;
+      border-bottom: 3px solid #ffffff;
+      padding: 17px 19px 15px 21px;
+      box-shadow: none;
+    }
+
+    .code-pill {
+      background: #000000;
+      color: #00ff00;
+      padding: 3px 8px;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      border: 1px inset #ffffff;
+    }
+
+    .challenges-container {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+
+    .challenge-card {
+      width: 100%;
+      background: #ffffff;
+      border-top: 2px solid #404040;
+      border-left: 2px solid #404040;
+      border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      padding: 18px;
+    }
+
+    .card-header {
+      background: #000080;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 8px 12px;
+      font-size: 14.5px;
+      margin: -18px -18px 16px -18px;
+      letter-spacing: 0.5px;
+    }
+
+    .challenge-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #222222;
+      margin-bottom: 14px;
+    }
+
+    .hint-box {
+      background: #f4f4f4;
+      border: 1px dashed #666666;
+      padding: 12px 14px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #111111;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    .win-btn {
+      display: inline-block;
+      background: #c0c0c0;
+      color: #000000;
+      font-family: Tahoma, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 8px 18px;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #404040;
+      border-bottom: 2px solid #404040;
+      text-decoration: none;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .win-btn:active {
+      border-top: 2px solid #404040;
+      border-left: 2px solid #404040;
+      border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      padding: 9px 17px 7px 19px;
+    }
+
+    .status-alert {
+      background: #ffe6e6;
+      border: 1px solid #cc0000;
+      color: #990000;
+      padding: 12px 14px;
+      font-family: monospace;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .status-success {
+      background: #e6ffe6;
+      border: 1px solid #009900;
+      color: #006600;
+      padding: 12px 14px;
+      font-family: monospace;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .footer {
+      border-top: 2px groove #ffffff;
+      padding-top: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: #333333;
+    }
+
+    .counter {
+      background: #000000;
+      color: #00ff00;
+      font-family: monospace;
+      padding: 2px 6px;
+      border: 1px inset #ffffff;
+      font-weight: bold;
+    }
+
+    @media (max-width: 650px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-titles {
+        text-align: center;
+      }
+      .reporter-content {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .reporter-action {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- VENTANITA 1: HEADER / BANNER / LOGO -->
+  <div class="window">
+    <div class="title-bar">
+      <span>📁 C:\EKKO_GROUP\SAN_LUIS\WELCOME.EXE</span>
+      <div class="title-controls">
+        <span>_</span>
+        <span>□</span>
+        <span>X</span>
+      </div>
+    </div>
+    <div class="window-body">
+      <div class="header-content">
+        <img src="ekko.jpeg" alt="Ekogroups San Luis Logo" class="header-logo">
+        <div class="header-titles">
+          <h1>☠️ EKKO GROUP SAN LUIS - CTF ☠️</h1>
+          <p>[ SISTEMA DE ACCESO Y ENTRENAMIENTO DE SEGURIDAD ]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENTANITA 2: RETOS & REPORTER -->
+  <div class="window">
+    <div class="title-bar">
+      <span>📁 C:\EKKO_GROUP\SAN_LUIS\CTF_CHALLENGES.EXE</span>
+      <div class="title-controls">
+        <span>_</span>
+        <span>□</span>
+        <span>X</span>
+      </div>
+    </div>
+
+    <div class="window-body">
+
+      <!-- SECCION REPORTER BOT -->
+      <div class="reporter-box">
+        <div class="reporter-header">🤖 SISTEMA DE VALIDACIÓN (REPORTER BOT / GPT)</div>
+        
+        <div class="reporter-content">
+          <div class="reporter-text">
+            <p>
+              Para registrar y verificar tus puntos, todas las flags encontradas se entregan directamente a nuestro <strong>Reporter Bot (GPT)</strong>.
+            </p>
+            <p>
+              <strong>Comando obligatorio para enviar banderas:</strong>
+            </p>
+            <p style="margin: 10px 0;">
+              <span class="code-pill">/flag EKKOSL{TU_FLAG_AQUI}</span>
+            </p>
+            <p style="margin-bottom: 0;">
+              El bot validará automáticamente si la flag es correcta, llevará el conteo de tus banderas aprobadas y te notificará si cometiste algún error en el formato.
+            </p>
+          </div>
+
+          <!-- BOTON DERECHA REPORTER -->
+          <div class="reporter-action">
+            <a href="ESCRIBE_AQUI_TU_LINK_DEL_GPT" target="_blank" class="big-reporter-btn">
+              <span style="font-size: 24px;">🤖</span>
+              <span>ABRIR REPORTER (GPT)</span>
+              <span style="font-size: 11px; font-weight: normal; color: #555;">[ Hacer clic para validar ] ↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="challenges-container">
+        
+        <!-- Reto 1 -->
+        <div class="challenge-card">
+          <div class="card-header">🚩 RETO 01: Código Fuente</div>
+          <p>El inspector del navegador es tu mejor herramienta.</p>
+        </div>
+
+        <!-- Reto 2 -->
+        <div class="challenge-card">
+          <div class="card-header">🚩 RETO 02: 🤖🤖s</div>
+          <p>¿Qué rutas intentamos ocultar de los motores de búsqueda?</p>
+        </div>
+
+        <!-- Reto 3 -->
+        <div class="challenge-card">
+          <div class="card-header">🚩 RETO 03: Fuga de Documentación (Guía de Guías)</div>
+          <p>Se detectó información clasificada filtrada en la documentación de nuestro panel.</p>
+          <div style="margin: 12px 0;">
+            <a href="https://notebook.google.com/notebook/3c0f0b04-3b24-44ab-9d84-36c75a2e02d6?utm_source=gemini_notebook&utm_medium=referral" target="_blank" class="win-btn">
+              Abrir NotebookLM
+            </a>
+          </div>
+        </div>
+
+        <!-- Reto 4 -->
+        <div class="challenge-card">
+          <div class="card-header">🚩 RETO 04: OCULTO</div>
+          <p>Los archivos gráficos guardan secretos que escapan a simple vista.</p>
+          <div style="margin: 12px 0;">
+            <a href="OCULTO.PNG" download="desafio_metadatos.jpg" class="win-btn">
+              💾 Descargar Imagen (.JPG)
+            </a>
+          </div>
+          <div class="hint-box">
+            🛠️ <strong>Herramientas recomendadas:</strong> <code>exiftool</code>, <code>strings</code> o visores EXIF online.
+          </div>
+        </div>
+
+        <!-- Reto 5 -->
+        <div class="challenge-card">
+          <div class="card-header">🚩 RETO 05: Solo Estadounidenses</div>
+          <p>Necesitas ser 🇺🇸 para poder ver este sitio web. ¿O no?</p>
+        
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p>EKKO GROUP SAN LUIS — 2026 | Visitante N°: <span class="counter">671337</span></p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
